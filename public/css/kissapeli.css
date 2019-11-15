@@ -1,0 +1,28 @@
+button{
+  background-color: #ffe6e6;
+  color: black;
+  border: solid;
+  border-width: 1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+}
+
+
+button:focus {
+  outline:0;
+}
+
+
+h1{
+  margin: 5px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #ffe6e6;
+}
+
+.aloitusnappi{
+  margin-top: 15px;
+}
