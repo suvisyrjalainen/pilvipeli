@@ -19,6 +19,26 @@ function setup() {
   noCursor()
   angleMode(DEGREES);
   textSize(32);
+  haePistetaulukko();
+}
+
+async function haePistetaulukko(){
+  const response = await fetch('api/pisteet');
+  const data = await response.json();
+  console.log(data);
+  tayta_pistetaulukko(data);
+}
+
+function tayta_pistetaulukko(data){
+  var table = document.getElementById("pistetaulukko");
+  for (var i = 0; i < data.length; i++) {
+    var row = table.insertRow(i + 1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = data[i].pelaaja;
+    cell2.innerHTML = data[i].pisteet;
+  }
+  console.log(table);
 }
 
 function alaPelaamaan(){
@@ -118,4 +138,31 @@ class Kissa {
     pop();        // palauttaa koordinaatiston asetuksen alkuperäiseen
 
   }
+}
+
+function tallennaTulos(){
+  var pelaaja = document.getElementById("pelaaja").value;
+
+  const data = {pelaaja, pisteet};
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify(data)
+  };
+
+
+
+  fetch('/api/tallenna', options).then(function(response) {
+      if(response.status == 200){
+          console.log("Sinne meni");
+          haePistetaulukko();
+      }
+    }, function(error){
+      console.log(error.message);
+    });
+
+
 }

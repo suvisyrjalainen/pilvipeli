@@ -35,27 +35,26 @@
 
 <div id="kissapeli"></div>
 
-<button>Tallenna tulos</button>
 
-<table class="table table-striped">
-    <thead>
+
+    <form class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" id="pelaaja" placeholder="Anna nimesi">
+      </div>
+      <button type="button" onclick="tallennaTulos();">Tallenna tulos</button>
+    </form>
+
+
+
+
+<table id="pistetaulukko" class="table table-striped">
+    <tbody>
       <tr>
         <th>Pelaaja</th>
         <th>Pelastetut kissat</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Suvi</td>
-        <td>80</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>20</td>
-      </tr>
     </tbody>
   </table>
-
 </body>
 
 
