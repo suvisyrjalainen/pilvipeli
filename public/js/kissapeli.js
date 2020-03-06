@@ -41,6 +41,15 @@ function tayta_pistetaulukko(data){
   console.log(table);
 }
 
+function tyhjenna_pistetaulukko(){
+  var table = document.getElementById("pistetaulukko");
+  var rivien_maara = table.rows.length - 1;
+
+  for (var i = 0; i < rivien_maara; i++) {
+      table.deleteRow(1);
+  }
+}
+
 function alaPelaamaan(){
   elamat = 9;
   pisteet = 0;
@@ -158,6 +167,7 @@ function tallennaTulos(){
   fetch('/api/tallenna', options).then(function(response) {
       if(response.status == 200){
           console.log("Sinne meni");
+          tyhjenna_pistetaulukko();
           haePistetaulukko();
       }
     }, function(error){
